@@ -16,6 +16,8 @@ void platformSpecificFunction() {
 }
 #endif
 
+// https://github.com/DaraHeaphy/CPP_PROJECT_SUBMISSION
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
