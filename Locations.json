@@ -1,0 +1,284 @@
+ {
+    "locations": {
+        "start": {
+            "location-image": ":/zork_images/start.png",
+            "description-of-area": "You find yourself in a small dilapidated cottage.",
+            "exits": {
+                "north": {
+                    "id": "garden",
+                    "description": "To the north there is a door exiting this old cottage",
+                    "accessible": true,
+                    "actionText": "As you open the old door it creaks loudly, and you close it gently behind you."
+                },
+                "south": null,
+                "east": null,
+                "west": {
+                    "accessible": false,
+                    "description": "An old wooden wall with no windows or doors is to your west.",
+                    "actionText": "You cannot pass."
+                }
+            }
+        },
+        "garden": {
+            "location-image": ":/zork_images/garden.png",
+            "description-of-area": "You find yourself in a small overgrown garden with a large forest all around you.",
+            "exits": {
+                "north": {
+                    "id": "tunnel",
+                    "description": "To the north lies a small well, with a rope leading into a seemingly bottomless abyss.",
+                    "accessible": true,
+                    "actionText": "As you descend the well you feel its moist walls brushing off your skin with every step."
+                },
+                "south": {
+                    "id": "start",
+                    "description": "The door you just exited through is to the south.",
+                    "accessible": true,
+                    "actionText": "You make your way back inside the small, old cottage."
+                },
+                "east": {
+                    "accessible": false,
+                    "actionText": "The forest here is too thick to pass through."
+                },
+                "west": {
+                    "accessible": false,
+                    "actionText": "The forest here is too thick to pass through."
+                }
+            }
+        },
+        "tunnel": {
+            "location-image": ":/zork_images/tunnel.png",
+            "description-of-area": "After descending the well you find yourself in what seems to be a tunnel.",
+            "exits": {
+                "north": {
+                    "accessible": false,
+                    "actionText": "A wall of dirt prevents you from venturing north."
+                },
+                "south": {
+                    "accessible": false,
+                    "actionText": "Oh no! The rope you used to descend has torn."
+                },
+                "east": {
+                    "id": "cellar",
+                    "description": "A tunnel to the east leads to a dusty wooden door, slightly ajar.",
+                    "accessible": true,
+                    "actionText": "As you walk towards the door the wind coming through the well makes for an eerie theme."
+                },
+                "west": {
+                    "id": "cave",
+                    "description": "The tunnel to the west leads to a wall of cobwebs",
+                    "accessible": true,
+                    "failedActionText": "You claw at the cobwebs with your bare hands, but are too inept to pass through them without the right tool...",
+                    "actionText": "The sword will allow you to cut through these cobwebs with ease.",
+                    "required-items": [
+                        "sword"
+                    ]
+                }
+            }
+        },
+        "cellar": {
+            "location-image": ":/zork_images/cellar.png",
+            "description-of-area": "After entering through the ajar door you are met with what appears to be some sort of sick torture chamber.",
+            "exits": {
+                "north": {
+                    "accessible": false,
+                    "actionText": "You cannot go that way."
+                },
+                "south": {
+                    "accessible": false,
+                    "actionText": "You cannot go that way."
+                },
+                "east": {
+                    "id": "secret-office",
+                    "description": "A room appears to be hidden down here, seperate from the torture chamber.",
+                    "accessible": true,
+                    "actionText": "The hidden room appears to be an office with a case containing a massive sword. Whatever could the owner need that for!?"
+                },
+                "west": {
+                    "id": "tunnel",
+                    "description" : "The tunnel you passed through is to the west.",
+                    "accessible": true,
+                    "actionText": "You head back to the tunnel."
+                }
+            }
+        },
+        "secret-office": {
+            "location-image": ":/zork_images/office.png",
+            "description-of-area": "You have stumbled upon a secret office hidden in the depths.",
+            "items" : [
+                {
+                    "name": "sword",
+                    "type": "weapon",
+                    "action": "attack",
+                    "location": 1,
+                    "item-image": ":/zork_images/sword.png"
+                }
+            ],
+            "exits": {
+                "north": {
+                    "accessible": false,
+                    "actionText": "You cannot go that way."
+                },
+                "south": {
+                    "accessible": false,
+                    "actionText": "You cannot go that way."
+                },
+                "east": {
+                    "accessible": false,
+                    "actionText": "You cannot go that way."
+                },
+                "west": {
+                    "id": "cellar",
+                    "description": "The torture chamber lies to the west.",
+                    "accessible": true,
+                    "actionText": "You return to the torture chamber."
+                }
+            }
+        },
+        "cave": {
+            "location-image": ":/zork_images/cave.png",
+            "description-of-area": "You find yourself in a large open cave.",
+            "obstacle": {
+                "obstacleDescription": "A menacing spider blocks the exit of the cave. In order to proceed, you must kill it. ",
+                "requiredAction": "attack",
+                "active": true,
+                "actionSuccess": "You successfully defeat the spider and may now proceed.",
+                "actionFailure": "That item has no effect right now."
+            },
+            "exits": {
+                "north": {
+                    "accessible": false,
+                    "actionText": "The cave walls loom over you."
+                },
+                "south": {
+                    "accessible": false,
+                    "description": "All that lies to the south is a mound of dead and rotten creatures."
+                },
+                "east": {
+                    "id": "tunnel",
+                    "description": "The tunnel is to the east.",
+                    "accessible": true,
+                    "actionText": "Spooked by the cave you return to the tunnel."
+                },
+                "west": {
+                    "id": "clearing",
+                    "description": "You spot a slope to the west leading to an exit in the cave roof.",
+                    "accessible": true,
+                    "actionText": "You hurriedly exit the cave and find yourself in a clearing in the thick forest."
+                }
+            }
+        },
+        "clearing": {
+            "location-image": ":/zork_images/clearing.png",
+            "description-of-area": "Upon scaling the ladder you are finally met with the smell of fresh air as you exit into a clearing in the dense forest.",
+            "exits": {
+                "north": {
+                    "id": "impassable-gate",
+                    "description": "A long winding pathway leads out of the clearing and towards a large metal gate in the distance.",
+                    "accessible": true,
+                    "actionText": "Not wanting to descend into the hellish cave again you decide to make your way east."
+                },
+                "south": {
+                    "accessible": false,
+                    "actionText": "The impenetrable forest has thwarted your plans to head south once again."
+                },
+                "east": {
+                    "id": "cave",
+                    "description": "A hole to the east leads back to the cave.",
+                    "accessible": true,
+                    "actionText": "You return to the cave."
+                },
+                "west": {
+                    "accessible": false,
+                    "actionText": "The impenetrable forest has thwarted your plans to head west once again."
+                }
+            }
+        },
+        "impassable-gate": {
+            "location-image": ":/zork_images/gate.png",
+            "description-of-area": "A large metal gate towers over you.",
+            "exits": {
+                "north": {
+                    "accessible": false,
+                    "actionText": "Nothing of note lies to the north."
+                },
+                "south": {
+                    "id": "clearing",
+                    "description": "You can still see the clearing to the south.",
+                    "accessible": true,
+                    "actionText": "You return to the clearing for a breather."
+                },
+                "east": {
+                    "id": "ominous-tower",
+                    "description": "A large keyhole in the center of the gate provides some hope.",
+                    "accessible": true,
+                    "failedActionText": "The gate is locked.",
+                    "actionText": "You insert the key and sure enough, it unlocks the gate.",
+                    "required-items": [
+                        "key"
+                    ]
+                },
+                "west": {
+                    "accessible": false,
+                    "actionText": "The impenetrable forest has thwarted your plans to head west once again."
+                }
+            }
+        },
+        "ominous-tower": {
+            "location-image": ":/zork_images/tower.png",
+            "description-of-area": "A large ominous tower looms above you. You feel an other-worldly power omitting from its highest chamber.",
+            "exits": {
+                "north": {
+                    "id": "tower-chamber",
+                    "description": "A large door greets you at the foot of the tower.",
+                    "accessible": true,
+                    "actionText": "You enter through the door, and a feeling of impending doom overcomes you as you make your way to the tower chamber."
+                },
+                "south": {
+                    "accessible": false,
+                    "actionText": "The impenetrable forest has thwarted your plans to head south once again."
+                },
+                "east": {
+                    "accessible": false,
+                    "actionText": "Going east would plunge you into a lake. You decide that would not be ideal and turn around."
+                },
+                "west": {
+                    "id": "impassable-gate",
+                    "description": "The gate leads back to the winding pathway.",
+                    "accessible": true,
+                    "actionText": "You leave the tower grounds."
+                }
+            }
+        },       
+        "tower-chamber": {
+            "location-image": ":/zork_images/chamber.png",
+            "description-of-area": "You enter the tower's chamber and instantly feel the presence of forces unknown.",
+            "obstacle": {
+                "obstacleDescription": "A large floating orb lies in the center of the room. It seems your only hope of escape is to interact with it. ",
+                "requiredAction": "interact",
+                "active": true,
+                "actionSuccess": "The moment you make contact with the orb it explodes, engulfing you and everything around you in flames.",
+                "actionFailure": "That item has no effect right now."
+            },
+            "exits": {
+                "north": {
+                    "accessible": false,
+                    "actionText": "The chamber only has one entrance."
+                },
+                "south": {
+                    "id": "ominous-tower",
+                    "description": "The door closes behind you and clicks softly.",
+                    "accessible": false,
+                    "actionText": "The door has locked behind you. It appears that you have been trapped by powers unknown."
+                },
+                "east": {
+                    "accessible": false,
+                    "actionText": "The chamber only has one entrance."
+                },
+                "west": {
+                    "accessible": false,
+                    "actionText": "The chamber only has one entrance."
+                }
+            }
+        }
+    }
+}
